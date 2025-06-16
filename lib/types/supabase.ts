@@ -809,6 +809,7 @@ export type Database = {
           xp: number;
           updated_at: string;
           clear_count: number;
+          total_points: number;
           rank: number;
         }[];
       };
@@ -834,6 +835,7 @@ export type Database = {
           xp: number;
           updated_at: string;
           clear_count: number;
+          total_points: number;
           rank: number;
         }[];
       };

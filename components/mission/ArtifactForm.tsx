@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ARTIFACT_TYPES, getArtifactConfig } from "@/lib/artifactTypes";
+import { POSTING_POINTS_PER_UNIT } from "@/lib/constants";
 import type { Tables } from "@/lib/types/supabase";
 import type { User } from "@supabase/supabase-js";
 import { useState } from "react";
@@ -111,13 +112,15 @@ export function ArtifactForm({
                 placeholder="例：50"
               />
               <p className="text-xs text-gray-500">
-                配布した枚数を入力してください（1枚＝5ポイント）
+                配布した枚数を入力してください（1枚＝{POSTING_POINTS_PER_UNIT}
+                ポイント）
               </p>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="locationText">
-                ポスティング場所 <span className="text-red-500">*</span>
+                ポスティング場所の郵便番号（ハイフンなし）
+                <span className="text-red-500">*</span>
               </Label>
               <Input
                 type="text"
@@ -126,10 +129,10 @@ export function ArtifactForm({
                 required
                 maxLength={100}
                 disabled={disabled}
-                placeholder="例：東京都世田谷区代田1丁目"
+                placeholder="例：1540017"
               />
               <p className="text-xs text-gray-500">
-                市区町村レベルまでの住所を入力してください
+                対象エリアの郵便番号をご入力ください
               </p>
             </div>
           </div>
